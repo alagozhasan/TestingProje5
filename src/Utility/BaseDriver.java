@@ -1,6 +1,7 @@
 package Utility;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -32,7 +33,7 @@ public class BaseDriver {
         driver.manage().timeouts().implicitlyWait(dr);
         wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         driver.get("https://admin-demo.nopcommerce.com/login?");
-
+        driver.manage().window().setPosition(new Point(2000,0));
     }
 
 
