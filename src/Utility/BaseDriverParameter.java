@@ -22,23 +22,23 @@ public class BaseDriverParameter {
 
     @BeforeClass
     @Parameters("BrowserTipi")
-    public void baslangicIslemler(String BrowserTipi) {
+    public void BaslangicIslemleri(String BrowserTipi) {
         Logger logger = Logger.getLogger("");
         logger.setLevel(Level.SEVERE);
-        switch (BrowserTipi.toLowerCase())
-        {
-            case "firefox" :
+        switch (BrowserTipi.toLowerCase()) {
+            case "firefox":
                 System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "/dev/null");
                 driver = new FirefoxDriver();
+
                 System.out.println("firefox started");
                 break;
 
             case "safari":
-                driver=new SafariDriver();
+                driver = new SafariDriver();
                 break;
 
             case "edge":
-                driver=new EdgeDriver();
+                driver = new EdgeDriver();
                 break;
 
             default:
@@ -52,7 +52,9 @@ public class BaseDriverParameter {
         driver.manage().timeouts().implicitlyWait(dr);
         driver.get("https://admin-demo.nopcommerce.com/login?");
         wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+
     }
+
 
 
     @AfterClass
