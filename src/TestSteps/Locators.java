@@ -1,14 +1,15 @@
 package TestSteps;
 
 import Utility.BaseDriver;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class Locators {
-    public Locators() {
+    public Locators(WebDriver driver) {
 
-        PageFactory.initElements(BaseDriver.driver, this);
+        PageFactory.initElements(driver, this);
     }
 
     @FindBy(id="Email")

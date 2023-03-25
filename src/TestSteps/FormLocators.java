@@ -3,6 +3,7 @@ package TestSteps;
 import Utility.BaseDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -12,11 +13,10 @@ import org.openqa.selenium.support.ui.Select;
 import java.lang.invoke.CallSite;
 import java.util.List;
 
-import static Utility.BaseDriver.driver;
-import static Utility.BaseDriver.wait;
 
 public class FormLocators {
-    public FormLocators() {
+
+    public FormLocators(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
 
@@ -76,13 +76,26 @@ public class FormLocators {
     @FindBy(css = "tbody td:nth-child(2)")
     WebElement resultEmail;
 
-    @FindBy(css = "((//tr[@class='odd'])[1]/td)[7]")
-    WebElement EditBtn;
+    @FindBy(xpath = "((//tr[@class='odd'])[1]/td)[7]")
+    WebElement editBtn;
+
+    @FindBy(id = "customer-delete")
+    public WebElement deleteButton;
+
+    @FindBy(css = "[class='btn btn-danger float-right']")
+    public WebElement deleteAlert;
+
+    @FindBy(css = "input[type='text']")
+    public WebElement leftNavSearchBox;
+
+    @FindBy(css = "strong[class='tt-highlight']")
+    public WebElement leftNavSearchClick;
 
 
+    @FindBy(css = "h1[class='float-left']")
+    public WebElement shipments;
 
-
-    public void clickFunction(WebElement e) {
+    public void clickFunction(WebElement e, WebDriver driver) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].click();", e);
         e.click();
