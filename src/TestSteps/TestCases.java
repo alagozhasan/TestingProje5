@@ -27,6 +27,8 @@ public class TestCases {
 
     @Test(priority = 1)
     void LoginTest() {
+        driver.get("https://admin-demo.nopcommerce.com/login?");
+
         Locators lc = new Locators(driver);
         lc.loginBtn.click();
 
@@ -39,7 +41,9 @@ public class TestCases {
         FormLocators f = new FormLocators(driver);
         for (int i = 0; i < ln.leftnav.size(); i++) {
             ln.leftnav.get(i).click();
-            wait.until(ExpectedConditions.visibilityOf(ln.leftnavIn.get(ln.leftnavIn.size() - 1)));
+//            wait.until(ExpectedConditions.visibilityOf(ln.leftnavIn.get(ln.leftnavIn.size() - 1)));
+            wait.until(ExpectedConditions.elementToBeClickable(ln.leftnav.get(i+1)));
+            Tools.Bekle(2);
             System.out.println(ln.leftnav.get(i).getText() + "Son parçası : " + ln.leftnavIn.get(ln.leftnavIn.size() - 1).getText());
 
             Assert.assertTrue(ln.leftnavIn.get(

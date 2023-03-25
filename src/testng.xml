@@ -7,7 +7,7 @@
             <class name="TestSteps.TestCases"/>
         </classes>
     </test>
-    <test name="firefoTest">
+    <test name="firefoxTest">
         <parameter name="browserTipi" value="firefox"></parameter>
         <classes>
             <class name="TestSteps.TestCases"/>

@@ -20,6 +20,9 @@ public class LeftnavLocators {
     @FindBy(css = "ul[class='nav nav-treeview'][style='display: block;']>li")
     List<WebElement> leftnavIn;
 
+    @FindBy(xpath = "(//nav[@class='mt-2']/ul/li[@class='nav-item has-treeview']/a)[3]")
+    WebElement onlyCustomersbtn;
+
     @FindBy(linkText = "Add new")
     WebElement addNewBtn;
 }
