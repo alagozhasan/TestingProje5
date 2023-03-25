@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Test Suite">
-    <test name="test1">
+<suite name="Test Suite" parallel="tests" thread-count="2">
+    <test name="chromeTest">
+        <parameter name="browserTipi" value="chrome"></parameter>
         <classes>
-
-            <class name="TestSteps.Tests">
-                    <methods>
-                        <exclude name="leftnavCheckTest"></exclude>
-<!--                        <exclude name="CreateCustomerTest"></exclude>-->
-
-                    </methods>
-            </class>
+            <class name="TestSteps.TestCases"/>
+        </classes>
+    </test>
+    <test name="firefoTest">
+        <parameter name="browserTipi" value="firefox"></parameter>
+        <classes>
+            <class name="TestSteps.TestCases"/>
         </classes>
     </test>
 </suite>
